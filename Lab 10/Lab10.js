@@ -9,6 +9,8 @@ L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png').addTo(Lab10map)
 <img src="https://www.freepnglogos.com/uploads/mountain-png/matterhorn-snow-mountain-photo-pixabay-12.png" alt="Mountain">
 <img src="https://john4046.github.io/icon.png" alt="My Image">
 <hr>Horizontal rule (line)
+<button type="button">Regular button</button>
+<button type="button" class="btn btn-primary">Button with Bootstrap classes</button>
 <p>Default paragraph text</p>
 <p class="text-info">Paragraph text with a Bootstrap class</p>
 <p>Default text with <span class="text-info">formatted text</span> mixed in</p>
