@@ -12,4 +12,11 @@ L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png').addTo(Lab10map)
 <p>Default paragraph text</p>
 <p class="text-info">Paragraph text with a Bootstrap class</p>
 <p>Default text with <span class="text-info">formatted text</span> mixed in</p>
-<div id="Lab10map"
+<div id="Lab10map">
+<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+  <div class="card-header">Header Text</div>
+  <div class="card-body">
+    <h5 class="card-title">Title</h5>
+    <p class="card-text">Nam vitae lectus commodo, consectetur ligula. Integer odio purus, semper a massa id, sagittis fringilla eros.</p>
+  </div>
+</div
