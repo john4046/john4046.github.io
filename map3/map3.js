@@ -1,32 +1,36 @@
-/* global L */
-/* global jQuery */
+/* global L jQuery */
 /* global map3 */
 /* global data */
-L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png').addTo(map3)
-var states = 'https://geog4046.github.io/assignment-resources/data/us_state_demographics_ESRI_2010A.geojson'
-jQuery.getJSON(states, function (data) {
-  L.geoJSON(data).addTo(map3)
+/* global statesLayerObject */
+/* global basemapsObject */
+L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png').addTo(Lab9map)
+var data = 'https://geog4046.github.io/assignment-resources/data/us_state_demographics_ESRI_2010A.geojson'
+jQuery.getJSON(data, function (data) {
+  L.geoJSON(data).addTo(Lab9map)
 })
-var object = function (feature) {
-  var tenth = feature.properties.AGE
-  var olive = 'olive'
-  if (tenth < 38) { olive = 'green' }
-  return {
-    color: olive,
-    weight: 1,
-    fillOpacity: 0.2
+  var style = function (feature) {
+    var tenth = feature.properties.Age
+    var color = 'olive'
+    if (tenth < 38) { color = 'green' }
+    return {
+      color: color,
+      weight: 1,
+      fillOpacity: 0.5
+    }
   }
-}
-var fish = {
-  style: object,
-  onEachFeature: tile
-  // contents of the function
-}
-L.geoJSON(data, fish).addTo(map3)
-var tile = function (feature, layer) {
-}
-var tile = function (feature, layer) {
-  var name = feature.properties.Louisiana
+  var object = {
+    style: style,
+    onEachFeature: dog
+  }
+  L.geoJSON(data, object).addTo(Lab9map)
+})
+var dog = function (feature, layer) {
+  var name = feature.properties.STATE_NAME
   var age = feature.properties.AGE
-  layer.bindPopup('age of Louisiana' + name + ': ' + age + '<br>National average: 38')
+  layer.bindPopup('Median age of ' + name + ': ' + age + '<br>National average: 38')
+  statesLayerObject.addLayer(layer)
 }
+var layersObject = {
+  'Age by state': statesLayerObject
+}
+L.control.layers(basemapsObject, layersObject).addTo(Lab9map)
