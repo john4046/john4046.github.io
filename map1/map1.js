@@ -7,5 +7,5 @@ var circle = L.polygon([
   [38.88, -77.0502],
   [38.88, -77.0326]
 ]).addTo(Lab7map)
-circle.bindPopup('A view of Washington DC.')
+circle.bindPopup('A small section of Washington DC.')
 washingtonMonument.bindPopup('This is the Washington Monument.')
